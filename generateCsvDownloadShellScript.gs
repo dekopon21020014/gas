@@ -1,3 +1,10 @@
+/*
+ * この関数を，スプレッドシートに紐づいたgasdで実行する
+ * 生成されたシェルコマンドがconsole.logで表示される
+ * スプレッドシートの共有範囲を[リンクを知っている全員]に設定する
+ * シェルコマンドを実行してcsvを得る
+ * 必要に応じて，スプレッドシートの共有範囲を元に戻す
+*/
 function generateCsvDownloadShellScript() {
   const spreadSheet = SpreadsheetApp.getActiveSpreadsheet();
   const sheets      = spreadSheet.getSheets();
