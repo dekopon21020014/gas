@@ -22,3 +22,38 @@ function generateCsvDownloadShellScript() {
   console.log(command);
   return;
 }
+
+/*
+ * javascriptライクな書き方が理解しづらい人は以下のようなコードの方が理解できるかも？？
+ * どちらも同じ動きをするはずです
+*/
+
+/*
+
+function createDownloadCsvScript() { 
+  let spreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+  let sheets      = spreadSheet.getSheets();
+  let url         = spreadSheet.getUrl().replace("edit", "export?gid=");
+  let gids = [];
+  let sheetNames = [];
+  for (let i = 0; i < sheets.length; i++) {
+    gids.push(sheets[i].getSheetId());
+    sheetNames.push(sheets[i].getSheetName());
+  }
+
+  let command = 'gids=(';
+  for (let i = 0; i < gids.length; i++) {
+    command += `${gids[i]} `;
+  }
+  command += ');'
+  command += 'sheetNames=(';
+  for (let i = 0; i < sheetNames.length; i++) {
+    command += `${sheetNames[i]} `;
+  }
+  command += ');'
+  command += `for i in {1..${gids.length}}; do wget -O \$sheetNames[\$i].csv \"${url}\${gids[\$i]}&format=csv\"; done;`;
+  console.log(command);
+  return;
+}
+
+/*
