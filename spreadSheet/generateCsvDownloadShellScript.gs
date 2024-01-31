@@ -24,12 +24,9 @@ function generateCsvDownloadShellScript() {
 }
 
 /*
- * javascriptライクな書き方が理解しづらい人は以下のようなコードの方が理解できるかも？？
- * どちらも同じ動きをするはずです
-*/
-
-/*
-
+ javascriptライクな書き方が理解しづらい人は以下のようなコードの方が理解できるかも？？
+ どちらも同じ動きをするはずです
+ 
 function createDownloadCsvScript() { 
   let spreadSheet = SpreadsheetApp.getActiveSpreadsheet();
   let sheets      = spreadSheet.getSheets();
