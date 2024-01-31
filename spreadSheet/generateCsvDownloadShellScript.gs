@@ -56,4 +56,4 @@ function createDownloadCsvScript() {
   return;
 }
 
-/*
+*/
